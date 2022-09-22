@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="ExternalItems\ExternalDeclarations.cs" />
     <Compile Include="FileOperations\DataOperations.cs" />
+    <Compile Include="Logic\ApplicationInformation.cs" />
     <Compile Include="Logic\WindowInformation.cs" />
     <Compile Include="MenuTryApplicationContext.cs" />
     <Compile Include="Program.cs" />

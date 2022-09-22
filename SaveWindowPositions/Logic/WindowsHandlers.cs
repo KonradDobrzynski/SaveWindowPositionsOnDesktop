@@ -19,12 +19,12 @@ namespace SaveWindowPositions.Logic
             var allWindowHandlersWithPlacements = GetNormalHandlersWithPlacements();
             allWindowHandlersWithPlacements.AddRange(GetChromeHandlersWithPlacements());
 
-            DataOperations.Save(allWindowHandlersWithPlacements);
+            DataOperations.SaveWindowsData(allWindowHandlersWithPlacements);
         }
 
         public static void RestoreWindows()
         {
-            var savedWindowHandlersWithPlacements = DataOperations.Restore();
+            var savedWindowHandlersWithPlacements = DataOperations.RestoreWindowsData();
 
             var allWindowHandlersWithPlacements = GetNormalHandlersWithPlacements();
             allWindowHandlersWithPlacements.AddRange(GetChromeHandlersWithPlacements());
@@ -41,7 +41,7 @@ namespace SaveWindowPositions.Logic
                 var restoredRecordPlacement = restoredRecord.Placement;
                 int baseShowCmd = restoredRecordPlacement.showCmd;
 
-                restoredRecordPlacement.showCmd = 0;
+                restoredRecordPlacement.showCmd = baseShowCmd + 1;
                 SetPlacement(item.Handler, ref restoredRecordPlacement);
                 restoredRecordPlacement.showCmd = baseShowCmd;
                 SetPlacement(item.Handler, ref restoredRecordPlacement);
